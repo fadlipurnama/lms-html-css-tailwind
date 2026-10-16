@@ -12,39 +12,40 @@
 
         @theme {
             --color-primary: #457566;
-            --color-primary-hover: #518877;
             --color-secondary: #E8EBF2;
-            --color-secondary-hover: #D1D5DB;
        
             --color-bg-main: #FFFFFF;
             --color-bg-card: #F7FAFC;
-            --color-bg-sidebar: #F6F6F6;
+            --color-bg-sidebar: white;
 
             --color-border-header: #E5E8EB;
             --color-border-card: #CFD6E8;
-            --color-border-card-hover: #104ECA;
+            --color-border-card-hover: #518877e4;
         }
 
         @layer components {
             .card-item {
-                @apply flex flex-col gap-2 p-4 bg-bg-card border border-border-card rounded-lg cursor-pointer
+                @apply flex flex-col gap-2 p-4 bg-bg-card border border-border-card rounded-lg cursor-pointer transition duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 hover:border-border-card-hover
             }
             .card-body{
                 @apply flex flex-col gap-1
             }
             .card-title{
-                @apply font-bold text-slate-800 tracking-wide text-xl
+                @apply font-bold text-slate-800 tracking-wide text-lg
             }
             .card-subtitle {
-                @apply text-slate-500 text-sm
+                @apply text-slate-500 text-sm font-semibold
+            }
+            .card-description {
+                @apply text-slate-700 text-sm
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="grid grid-cols-[60px_1fr] md:grid-cols-[80px_1fr] lg:grid-cols-[260px_1fr] bg-bg-main">
-        <aside id="sidebar" class="space-y-4 bg-bg-sidebar p-2 md:p-6 flex flex-col min-w-0 transition-all">
+    <div class="grid grid-cols-[60px_1fr] md:grid-cols-[80px_1fr] lg:grid-cols-[240px_1fr] bg-bg-main">
+        <aside id="sidebar" class="space-y-4 py-20 px-2 bg-bg-sidebar md:p-6 flex flex-col min-w-0 transition-all border border-r-secondary">
             <div>
                 <a class="p-1 hidden lg:block">
                     <img src="/assets/images/logo.png" class="w-24" />
@@ -52,10 +53,10 @@
 
             </div>
             <nav>
-                <ul class="w-full flex flex-col gap-2 items-center md:items-start">
+                <ul class="w-full flex flex-col gap-4 items-center md:items-start">
                     <li class="w-full">
                         <a href="#"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-secondary hover:font-semibold">
                             <span class="material-symbols-outlined">
                                 home
                             </span>
@@ -66,7 +67,7 @@
                     </li>
                     <li class="w-full">
                         <a href="#"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-secondary hover:font-semibold">
                             <span class="material-symbols-outlined">
                                 dashboard
                             </span>
@@ -77,7 +78,7 @@
                     </li>
                     <li class="w-full">
                         <a href="#" aria-current="page"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg text-primary font-medium bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg text-primary font-medium bg-secondary">
                             <span class=" material-symbols-outlined">
                                 play_lesson
                             </span>
@@ -88,7 +89,7 @@
                     </li>
                     <li class="w-full">
                         <a href="#"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-secondary hover:font-semibold">
                             <span class="material-symbols-outlined">
                                 card_membership
                             </span>
@@ -99,7 +100,7 @@
                     </li>
                     <li class="w-full">
                         <a href="#"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-secondary hover:font-semibold">
                             <span class="material-symbols-outlined">
                                 forum
                             </span>
@@ -110,7 +111,7 @@
                     </li>
                     <li class="w-full">
                         <a href="#"
-                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-secondary hover:font-semibold">
                             <span class="material-symbols-outlined">
                                 task
                             </span>
@@ -146,91 +147,90 @@
                 </a>
             </div>
             <section
-                class="grid grid-cols-1 pb-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto px-8">
-                <div class="card-item">
+                class="grid grid-cols-1  grid-cols-[repeat(auto-fit,minmax(220px,1fr))] pt-2 pb-5 gap-4 overflow-y-auto px-8">
+                <figure class="card-item">
                     <img src="assets/images/courses/web-development-fundamental.png" alt="Web Development Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
                         <h2 class="card-title">Web Development Fundamentals</h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Learn the basics of HTML, CSS, and JavaScript to build your first
+                        <p class="card-description">Learn the basics of HTML, CSS, and JavaScript to build your first
                             website.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/advanced-javascript-techniques.png" alt="Advanced Javascript Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
                         <h2 class="card-title">Advanced JavaScript Techniques
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Dive deep into JavaScript concepts like asynchronous programming, closures, and ES6
+                        <p class="card-description">Dive deep into JavaScript concepts like asynchronous programming, closures, and ES6
                             courses.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/ui-ux-design.png" alt="UI/UX Design Course" class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
                         <h2 class="card-title">UI/UX Design Techniques
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Learn user research, wireframing, interactive prototyping, and design systems in Figma to
+                        <p class="card-description">Learn user research, wireframing, interactive prototyping, and design systems in Figma to
                             craft intuitive digital experiences.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/building-modern-web-react.png" alt="Modern Web React Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
                         <h2 class="card-title">Building Modern Web Apps With React
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Master component-based architecture, state management with Hooks, and client-side routing
+                        <p class="card-description">Master component-based architecture, state management with Hooks, and client-side routing
                             to build fast, scalable web applications.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/modrn-state-management.png" alt="Modern State Management Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
-                        <h2 class="card-title">Modern State Management (Redux Toolkit & Zustand)
+                        <h2 class="card-title">Modern State Management
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Learn how to manage global application state, optimize re-renders, and streamline data flow
+                        <p class="card-description">Learn how to manage global application state, optimize re-renders, and streamline data flow
                             in modern React projects.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/introduction-ai-for-web.png" alt="Introductiion AI For Web Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
                         <h2 class="card-title">Introduction to AI for Web Dev
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Explore the foundational concepts of AI and Machine Learning, and learn how to implement them
-                            to create smarter, adaptive web applications.</p>
+                        <p class="card-description">Learn AI & Machine Learning fundamentals to build smarter, adaptive web apps.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/seo-performance-optimization.png" alt="SEO Optimization Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
-                        <h2 class="card-title">SEO and Performance Optimization for Web Developers
+                        <h2 class="card-title">SEO Optimization for Web Developers
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Learn actionable techniques to dramatically improve your website's search engine ranking and page load performance for a better user experience.</p>
+                        <p class="card-description">Learn actionable techniques to boost your SEO ranking and load speed for a better user experience.</p>
                     </div>
-                </div>
-                <div class="card-item">
+                </figure>
+                <figure class="card-item">
                     <img src="assets/images/courses/testing-and-deploying.png" alt="DevOps Course"
                         class="aspect-video object-cover rounded-lg">
                     <div class="card-body">
-                        <h2 class="card-title">Testing and Deploying Modern Web Applications
+                        <h2 class="card-title">Testing and Deploying Web Applications
                         </h2>
                         <p class="card-subtitle">by @Mentor </p>
-                        <p>Master automated testing strategies and continuous integration pipelines to confidently deploy scalable web apps to production environments.</p>
+                        <p class="card-description">Master automated testing and CI/CD pipelines to deploy scalable web apps with confidence.</p>
                     </div>
-                </div>
+                </figure>
 
             </section>
         </main>
