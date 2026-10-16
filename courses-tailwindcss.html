@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eduCode - Courses</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style type="text/tailwindcss">
+
+        @theme {
+            --color-primary: #457566;
+            --color-primary-hover: #518877;
+            --color-secondary: #E8EBF2;
+            --color-secondary-hover: #D1D5DB;
+       
+            --color-bg-main: #FFFFFF;
+            --color-bg-card: #F7FAFC;
+            --color-bg-sidebar: #F6F6F6;
+
+            --color-border-header: #E5E8EB;
+            --color-border-card: #CFD6E8;
+            --color-border-card-hover: #104ECA;
+        }
+
+        @layer components {
+            .card-item {
+                @apply flex flex-col gap-2 p-4 bg-bg-card border border-border-card rounded-lg cursor-pointer
+            }
+            .card-body{
+                @apply flex flex-col gap-1
+            }
+            .card-title{
+                @apply font-bold text-slate-800 tracking-wide text-xl
+            }
+            .card-subtitle {
+                @apply text-slate-500 text-sm
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid grid-cols-[60px_1fr] md:grid-cols-[80px_1fr] lg:grid-cols-[260px_1fr] bg-bg-main">
+        <aside id="sidebar" class="space-y-4 bg-bg-sidebar p-2 md:p-6 flex flex-col min-w-0 transition-all">
+            <div>
+                <a class="p-1 hidden lg:block">
+                    <img src="/assets/images/logo.png" class="w-24" />
+                </a>
+
+            </div>
+            <nav>
+                <ul class="w-full flex flex-col gap-2 items-center md:items-start">
+                    <li class="w-full">
+                        <a href="#"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                            <p class="hidden lg:block">
+                                Home
+                            </p>
+                        </a>
+                    </li>
+                    <li class="w-full">
+                        <a href="#"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <p class="hidden lg:block">
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="w-full">
+                        <a href="#" aria-current="page"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg text-primary font-medium bg-bg-main">
+                            <span class=" material-symbols-outlined">
+                                play_lesson
+                            </span>
+                            <p class="hidden lg:block">
+                                Courses
+                            </p>
+                        </a>
+                    </li>
+                    <li class="w-full">
+                        <a href="#"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            <span class="material-symbols-outlined">
+                                card_membership
+                            </span>
+                            <p class="hidden lg:block">
+                                Certificate
+                            </p>
+                        </a>
+                    </li>
+                    <li class="w-full">
+                        <a href="#"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            <span class="material-symbols-outlined">
+                                forum
+                            </span>
+                            <p class="hidden lg:block">
+                                Forum
+                            </p>
+                        </a>
+                    </li>
+                    <li class="w-full">
+                        <a href="#"
+                            class="min-w-full inline-flex items-center gap-2 p-2 rounded-lg hover:text-primary hover:bg-bg-main">
+                            <span class="material-symbols-outlined">
+                                task
+                            </span>
+                            <p class="hidden lg:block">
+                                Quiz
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="h-screen overflow-hidden flex flex-col gap-6">
+            <header
+                class="flex bg-bg-main border-b border-border-header w-full items-center justify-end gap-4 py-4 px-6">
+                <span class="material-symbols-outlined cursor-pointer ">
+                    search
+                </span>
+                <span class="material-symbols-outlined cursor-pointer ">
+                    toggle_off
+                </span>
+                <div class="flex items-center gap-2">
+                    <img src="assets/images/user-image.png"
+                        class="rounded-full size-8 text-sm text whitespace-normal cursor-pointer object-cover">
+                    <p class="hidden lg:block text-sm font-bold">
+                        Fadli Purnama
+                    </p>
+                </div>
+            </header>
+            <div class="flex justify-between items-center px-8">
+                <h1 class="font-bold text-2xl tracking-wide">All Course</h1>
+                <a class="text-primary cursor-pointer hover:underline tracking-wide">
+                    See All
+                </a>
+            </div>
+            <section
+                class="grid grid-cols-1 pb-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto px-8">
+                <div class="card-item">
+                    <img src="assets/images/courses/web-development-fundamental.png" alt="Web Development Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Web Development Fundamentals</h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Learn the basics of HTML, CSS, and JavaScript to build your first
+                            website.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/advanced-javascript-techniques.png" alt="Advanced Javascript Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Advanced JavaScript Techniques
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Dive deep into JavaScript concepts like asynchronous programming, closures, and ES6
+                            courses.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/ui-ux-design.png" alt="UI/UX Design Course" class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">UI/UX Design Techniques
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Learn user research, wireframing, interactive prototyping, and design systems in Figma to
+                            craft intuitive digital experiences.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/building-modern-web-react.png" alt="Modern Web React Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Building Modern Web Apps With React
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Master component-based architecture, state management with Hooks, and client-side routing
+                            to build fast, scalable web applications.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/modrn-state-management.png" alt="Modern State Management Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Modern State Management (Redux Toolkit & Zustand)
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Learn how to manage global application state, optimize re-renders, and streamline data flow
+                            in modern React projects.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/introduction-ai-for-web.png" alt="Introductiion AI For Web Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Introduction to AI for Web Dev
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Explore the foundational concepts of AI and Machine Learning, and learn how to implement them
+                            to create smarter, adaptive web applications.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/seo-performance-optimization.png" alt="SEO Optimization Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">SEO and Performance Optimization for Web Developers
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Learn actionable techniques to dramatically improve your website's search engine ranking and page load performance for a better user experience.</p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="assets/images/courses/testing-and-deploying.png" alt="DevOps Course"
+                        class="aspect-video object-cover rounded-lg">
+                    <div class="card-body">
+                        <h2 class="card-title">Testing and Deploying Modern Web Applications
+                        </h2>
+                        <p class="card-subtitle">by @Mentor </p>
+                        <p>Master automated testing strategies and continuous integration pipelines to confidently deploy scalable web apps to production environments.</p>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>
