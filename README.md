@@ -9,6 +9,12 @@
 
 ---
 
+# Author
+
+- **Muhammad Fadli Purnama** 
+- GitHub: [@fadli](https://github.com/fadlipurnama)
+- Program: Full-Stack Web Development Batch 13 — Dibimbing.id
+
 ## Deskripsi Proyek
 
 **eduCode** adalah proyek Mini Project Full-Stack Web Development dalam program bootcamp yang membangun antarmuka **Learning Management System (LMS)** berbasis web. Proyek ini terdiri dari dua halaman utama yang dikerjakan dengan pendekatan teknologi berbeda:
