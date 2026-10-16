@@ -95,27 +95,51 @@ ASSIGNMENT Day 6 - Mini Project Full-Stack : HTML CSS & Tailwind/
 - Layout dashboard responsif menggunakan **CSS Grid** Tailwind:
   - **Mobile**: sidebar sempit `60px` (ikon saja), konten utama mengambil sisa ruang
   - **Tablet** (`md:`): sidebar melebar `80px`
-  - **Desktop** (`lg:`): sidebar penuh `260px` menampilkan label teks di samping ikon
-- Grid katalog kursus menyesuaikan jumlah kolom: `1 → 2 → 3 → 4` kolom seiring bertambahnya lebar viewport
+  - **Desktop** (`lg:`): sidebar penuh `240px` menampilkan logo dan label teks di samping ikon
+- Grid katalog kursus menggunakan **auto-fit** dengan lebar minimum kartu `220px`: `grid-cols-[repeat(auto-fit,minmax(220px,1fr))]` — kolom menyesuaikan otomatis seiring bertambahnya lebar viewport
+
+#### Katalog Kursus
+Dashboard menampilkan **8 kursus** lengkap:
+1. Web Development Fundamentals
+2. Advanced JavaScript Techniques
+3. UI/UX Design Techniques
+4. Building Modern Web Apps With React
+5. Modern State Management
+6. Introduction to AI for Web Dev
+7. SEO Optimization for Web Developers
+8. Testing and Deploying Web Applications
 
 #### Layout — Flexbox & Grid
 - **Wrapper utama**: `grid grid-cols-[60px_1fr]` — pembagian sidebar dan konten
-- **Sidebar navigasi**: Flexbox vertikal dengan item link yang melebar penuh (`w-full`)
-- **Header dashboard**: Flexbox horizontal (`justify-end`) menampilkan ikon search, toggle, dan profil pengguna
-- **Grid kursus**: `grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4` dengan scroll vertikal di area konten
+- **Sidebar navigasi**: Flexbox vertikal dengan item link yang melebar penuh (`w-full`), logo eduCode ditampilkan di desktop (`hidden lg:block`)
+- **Header dashboard**: Flexbox horizontal (`justify-end`) menampilkan ikon search, toggle, dan profil pengguna dengan nama
+- **Grid kursus**: `grid-cols-[repeat(auto-fit,minmax(220px,1fr))]` dengan scroll vertikal di area konten
 
 #### Komponen Reusable (Tailwind `@layer components`)
-- `.card-item` — kartu kursus dengan border, padding, rounded, dan kursor pointer
+- `.card-item` — kartu kursus dengan border, padding, rounded, shadow on hover, dan kursor pointer
 - `.card-body` — wrapper konten kartu dengan gap vertikal
-- `.card-title` — judul kartu: bold, tracking-wide, warna slate-800
-- `.card-subtitle` — subjudul kartu: muted, ukuran kecil
+- `.card-title` — judul kartu: bold, tracking-wide, warna slate-800, ukuran `text-lg`
+- `.card-subtitle` — subjudul kartu: muted (slate-500), ukuran kecil, font semibold
+- `.card-description` — deskripsi kartu: warna slate-700, ukuran kecil
 
 #### Kustomisasi Tema (`@theme`)
-- Palet warna brand didefinisikan sebagai token desain: `--color-primary`, `--color-bg-sidebar`, `--color-border-card`, dll., dapat digunakan langsung sebagai kelas Tailwind (misal `bg-bg-sidebar`, `text-primary`)
+Palet warna brand didefinisikan sebagai token desain, dapat digunakan langsung sebagai kelas Tailwind:
+
+| Token | Nilai | Contoh Kelas |
+|---|---|---|
+| `--color-primary` | `#457566` | `text-primary`, `bg-primary` |
+| `--color-secondary` | `#E8EBF2` | `bg-secondary` |
+| `--color-bg-main` | `#FFFFFF` | `bg-bg-main` |
+| `--color-bg-card` | `#F7FAFC` | `bg-bg-card` |
+| `--color-bg-sidebar` | `white` | `bg-bg-sidebar` |
+| `--color-border-header` | `#E5E8EB` | `border-border-header` |
+| `--color-border-card` | `#CFD6E8` | `border-border-card` |
+| `--color-border-card-hover` | `#518877e4` | `border-border-card-hover` |
 
 #### Hover & Focus State
-- Item sidebar: `hover:text-primary hover:bg-bg-main` untuk highlight navigasi aktif
-- Item aktif: `aria-current="page"` + kelas `text-primary font-medium bg-bg-main` untuk menandai halaman saat ini
+- Item sidebar: `hover:text-primary hover:bg-secondary hover:font-semibold` untuk highlight navigasi
+- Item aktif: `aria-current="page"` + kelas `text-primary font-medium bg-secondary` untuk menandai halaman saat ini
+- Kartu kursus: `hover:shadow-lg hover:-translate-y-1 hover:border-border-card-hover` melalui komponen `.card-item`
 - Gambar profil & ikon: `cursor-pointer` untuk feedback interaksi
 
 #### Aksesibilitas Dasar
